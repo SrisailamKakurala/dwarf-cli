@@ -1,0 +1,15 @@
+node_modules
+.npmignore
+.git
+.gitignore
+.DS_Store
+.vscode
+.idea
+*.log
+*.lock
+.env
+test/
+docs/
+examples/
+coverage/
+.learning

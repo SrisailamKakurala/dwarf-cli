@@ -29,6 +29,8 @@
         "chalk": "^4.1.2",
         "child_process": "^1.0.2",
         "commander": "^13.1.0",
-        "jsonfile": "^6.1.0"
+        "dotenv": "^16.4.7",
+        "jsonfile": "^6.1.0",
+        "openai": "^4.86.1"
     }
 }
