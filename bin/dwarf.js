@@ -1,10 +1,29 @@
-#! /usr/bin/env node
-const { spawn } = require("child_process");
+#!/usr/bin/env node
 
-const args = process.argv.slice(2);
+import readline from "readline";
+import generateProject from "../lib/commands/generateProject.js";
+import modifyProject from "../lib/commands/modifyProject.js";
+import exitShell from "../lib/commands/exitShell.js";
 
-if (args[0] === "forge") {
-  require("./forge")();
-} else {
-  console.log("Unknown command. Try 'dwarf forge'");
-}
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+  prompt: ">>> ",
+});
+
+console.log("Welcome to Dwarf CLI 🛠️ Type 'dwarf forge' to start or 'exit' to quit.");
+rl.prompt();
+
+rl.on("line", async (line) => {
+  const input = line.trim().toLowerCase();
+
+  if (input === "dwarf forge") {
+    await generateProject(rl);
+  } else if (input === "exit") {
+    exitShell(rl);
+  } else {
+    await modifyProject(input);
+  }
+
+  rl.prompt();
+});
