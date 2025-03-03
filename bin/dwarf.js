@@ -1,12 +1,10 @@
-#!/usr/bin/env node
+#! /usr/bin/env node
+const { spawn } = require("child_process");
 
-const { program } = require("commander");
-const init = require("../lib/commands/init");
+const args = process.argv.slice(2);
 
-program
-  .version("1.0.0")
-  .command("init")
-  .description("Initialize the project")
-  .action(init);
-
-program.parse(process.argv);
+if (args[0] === "forge") {
+  require("./forge")();
+} else {
+  console.log("Unknown command. Try 'dwarf forge'");
+}
