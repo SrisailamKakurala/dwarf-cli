@@ -1,26 +1,15 @@
 const OpenAI = require('openai');
-require('dotenv').config();
 
-const openai = new OpenAI({ apiKey: process.env.API_KEY });
-
-async function completion () {
-    const res = await openai.chat.completions.create({
-        model: "gpt-4.5-preview",
-        messages: [
-            { role: "system", content: "You are a helpful assistant." },
-            {
-                role: "user",
-                content: "Write a haiku about recursion in programming.",
-            },
-        ],
-        store: true,
-    });
-
-    return res;
-}
-
-completion().then(response => {
-    console.log(response);
-}).catch(error => {
-    console.error("Error:", error);
+const openai = new OpenAI({
+  apiKey: "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",
 });
+
+const completion = openai.chat.completions.create({
+  model: "gpt-4o-mini",
+  store: true,
+  messages: [
+    {"role": "user", "content": "write a haiku about ai"},
+  ],
+});
+
+completion.then((result) => console.log(result.choices[0].message.content));
