@@ -1,32 +1,53 @@
 @echo off
-setlocal
+echo Setting up a professional React.js SRC directory...
 
+:: Create main folders
+mkdir src
+cd src
+mkdir assets components constants contexts hooks layouts pages redux zustand services styles utils tests config
 
-:: Create core folders
-mkdir bin
-mkdir lib
-mkdir templates
-mkdir templates\react
-mkdir templates\vue
-mkdir templates\angular
-mkdir scripts
-mkdir .dwarf
+:: Create nested directories
+mkdir assets\icons assets\images
+mkdir components\ui components\forms components\layout
+mkdir hooks
+mkdir layouts
+mkdir pages\auth pages\dashboard
+mkdir redux\slices
+mkdir zustand\stores
+mkdir services
+mkdir styles
+mkdir utils
+mkdir tests\components tests\utils
 
-:: Create essential files
-echo #!/usr/bin/env node > bin\dwarf.js
-echo module.exports = {}; > lib\init.js
-echo module.exports = {}; > lib\makeProject.js
-echo module.exports = {}; > lib\fileGenerator.js
-echo module.exports = {}; > lib\stateManager.js
-echo module.exports = {}; > lib\contentGenerator.js
-echo {} > .dwarf\state.json
-echo {} > .dwarf\paths.json
-echo {} > .dwarf\content.json
-echo @echo off > scripts\generate.bat
-echo {^} > package.json
-echo # dwarf-cli > README.md
-echo node_modules/ > .gitignore
+:: Create core files
+echo // Root entry point > main.tsx
+echo // Main App Component > App.tsx
+echo // Centralized route definitions > routes.tsx
 
-:: Success message
-echo Folder structure for %PROJECT_NAME% created successfully!
-endlocal
+:: Create Redux boilerplate (if used)
+echo // Redux store > redux\store.ts
+echo // Example slice > redux\slices\exampleSlice.ts
+
+:: Create Zustand store (if used)
+echo // Zustand store > zustand\stores\exampleStore.ts
+
+:: Create Context API (if used)
+echo // Example Context API > contexts\ExampleContext.tsx
+
+:: Create hooks
+echo // Authentication hook > hooks\useAuth.ts
+echo // Theme hook > hooks\useTheme.ts
+
+:: Create services & API calls
+echo // API requests > services\api.ts
+echo // Auth API calls > services\authService.ts
+
+:: Create utility functions
+echo // Utility functions > utils\formatDate.ts
+echo // Local storage utils > utils\localStorage.ts
+
+:: Create Tailwind styles
+echo @tailwind base; @tailwind components; @tailwind utilities; > styles\global.css
+
+echo Setup complete! 🚀 Your React.js SRC folder is now production-ready.
+exit

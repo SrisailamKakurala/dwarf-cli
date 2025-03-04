@@ -1,29 +1,13 @@
 #!/usr/bin/env node
 
-import readline from "readline";
-import generateProject from "../lib/commands/generateProject.js";
-import modifyProject from "../lib/commands/modifyProject.js";
-import exitShell from "../lib/commands/exitShell.js";
+const { program } = require("commander");
+const generateProject = require("../lib/commands/generateProject");
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  prompt: ">>> ",
-});
+program
+  .command("forge")
+  .description("Create a new project and start an interactive shell")
+  .action(() => {
+    generateProject();
+  });
 
-console.log("Welcome to Dwarf CLI 🛠️ Type 'dwarf forge' to start or 'exit' to quit.");
-rl.prompt();
-
-rl.on("line", async (line) => {
-  const input = line.trim().toLowerCase();
-
-  if (input === "dwarf forge") {
-    await generateProject(rl);
-  } else if (input === "exit") {
-    exitShell(rl);
-  } else {
-    await modifyProject(input);
-  }
-
-  rl.prompt();
-});
+program.parse(process.argv);
