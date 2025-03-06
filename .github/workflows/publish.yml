@@ -2,8 +2,6 @@ name: Publish to NPM
 
 on: 
   workflow_dispatch:
-  # release:
-    # types: [created]  # Runs when a new release is created
 
 jobs:
   publish:
@@ -22,8 +20,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # - name: Run tests
-      #   run: npm test  # Ensure package is tested before publishing
+      - name: Set API Key
+        run: echo "API_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
 
       - name: Publish to NPM
         run: npm publish --access public
