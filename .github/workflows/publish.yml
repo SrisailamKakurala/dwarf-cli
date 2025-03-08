@@ -21,7 +21,8 @@ jobs:
         run: npm install
 
       - name: Create Config File
-        run: echo '{ "OPENAI_API_KEY": "${{ secrets.OPENAI_API_KEY }}" }' > config.json
+        run: |
+          echo '{ "OPENAI_API_KEY": "${{ secrets.OPENAI_API_KEY }}" }' > config.json
 
       - name: Upload Config File to GitHub Releases
         uses: softprops/action-gh-release@v1
