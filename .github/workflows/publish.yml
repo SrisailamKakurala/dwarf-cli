@@ -7,6 +7,10 @@ jobs:
   publish:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+      packages: write  # Ensure access to packages and releases
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -24,6 +28,11 @@ jobs:
         run: |
           echo '{ "OPENAI_API_KEY": "${{ secrets.OPENAI_API_KEY }}" }' > config.json
 
+      - name: Create Git Tag
+        run: |
+          git tag latest || true  # Avoid failure if tag already exists
+          git push origin latest || true
+
       - name: Upload Config File to GitHub Releases
         uses: softprops/action-gh-release@v1
         with:
@@ -39,4 +48,3 @@ jobs:
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
