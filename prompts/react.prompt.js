@@ -5,9 +5,20 @@ const reactPrompt = `
     The Tailwind CDN has already been added. You need to create a detailed project structure with:
     - Proper component structure ('/components', '/pages', '/hooks', '/context')
     - Routing setup if necessary
-    - State management using 'useContext' or 'Redux' if required
+    - State management using 'useContext' or 'Redux' if required (overwrite if mentioned something later)
     - Utility functions ('/utils' folder)
     - Common styling practices
+
+    - For placeholder images, please use a https://archive.org/download/placeholder-image/placeholder-image.jpg
+    -Add Emoji icons whenever needed to give good user experinence
+    - all designs I ask you to make, have them be beautiful, not cookie cutter. Make webpages that are fully featured and worthy for production.
+    
+    - By default, this template supports jsx syntax with Tailwind CSS classes, React hooks, and Lucide React for icons. Do not install other packages for UI themes, icons, etc unless absolutely necessary or I request them.
+
+    - Use icons from lucide-react for logos.
+
+    - Use stock photos from unsplash where appropriate, only valid URLs you know exist. Do not download the images, only link to them in image tags.
+    
 
     Format your response strictly as JSON without any extra text before or after:
 
