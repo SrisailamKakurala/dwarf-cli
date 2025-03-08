@@ -1,0 +1,32 @@
+{
+  "srcDirStructure": "src/\n    ├── components/\n    │   ├── Navbar.jsx\n    │   ├── Footer.jsx\n    │   ├── ProjectCard.jsx\n    │   └── HeroSection.jsx\n    ├── pages/\n    │   ├── Home.jsx\n    │   ├── Projects.jsx\n    │   └── Contact.jsx\n    ├── hooks/\n    │   └── useTheme.js\n    ├── context/\n    │   └── AppContext.js\n    ├── utils/\n    │   └── constants.js\n    └── App.jsx\n    └── main.jsx",
+  "paths": {
+    "App.jsx": "/src/App.jsx",
+    "main.jsx": "/src/main.jsx",
+    "components/Navbar.jsx": "/src/components/Navbar.jsx",
+    "components/Footer.jsx": "/src/components/Footer.jsx",
+    "components/ProjectCard.jsx": "/src/components/ProjectCard.jsx",
+    "components/HeroSection.jsx": "/src/components/HeroSection.jsx",
+    "pages/Home.jsx": "/src/pages/Home.jsx",
+    "pages/Projects.jsx": "/src/pages/Projects.jsx",
+    "pages/Contact.jsx": "/src/pages/Contact.jsx",
+    "hooks/useTheme.js": "/src/hooks/useTheme.js",
+    "context/AppContext.js": "/src/context/AppContext.js",
+    "utils/constants.js": "/src/utils/constants.js"
+  },
+  "code": {
+    "App.jsx": "import React from 'react';\nimport { BrowserRouter as Router, Route, Routes } from 'react-router-dom';\nimport Navbar from './components/Navbar';\nimport Footer from './components/Footer';\nimport Home from './pages/Home';\nimport Projects from './pages/Projects';\nimport Contact from './pages/Contact';\nconst App = () => {\n    return (\n        <Router>\n            <Navbar />\n            <Routes>\n                <Route path='/' element={<Home />} />\n                <Route path='/projects' element={<Projects />} />\n                <Route path='/contact' element={<Contact />} />\n            </Routes>\n            <Footer />\n        </Router>\n    );\n};\nexport default App;",
+    "main.jsx": "import React from 'react';\nimport ReactDOM from 'react-dom/client';\nimport App from './App';\nimport './index.css';\nconst root = ReactDOM.createRoot(document.getElementById('root'));\nroot.render(<React.StrictMode><App /></React.StrictMode>);",
+    "components/Navbar.jsx": "import React from 'react';\nimport { Link } from 'react-router-dom';\nconst Navbar = () => {\n    return (\n        <nav className='bg-gray-800 p-4'>\n            <ul className='flex space-x-4'>\n                <li><Link className='text-white' to='/'>Home</Link></li>\n                <li><Link className='text-white' to='/projects'>Projects</Link></li>\n                <li><Link className='text-white' to='/contact'>Contact</Link></li>\n            </ul>\n        </nav>\n    );\n};\nexport default Navbar;",
+    "components/Footer.jsx": "import React from 'react';\nconst Footer = () => { return <footer className='bg-gray-800 p-4 text-center text-white'>© 2023 My Portfolio</footer>; }; \nexport default Footer;",
+    "components/ProjectCard.jsx": "import React from 'react';\nconst ProjectCard = ({ title, description }) => {\n    return (\n        <div className='border p-4 rounded-md'>\n            <h2 className='text-xl font-bold'>{title}</h2>\n            <p>{description}</p>\n        </div>\n    );\n};\nexport default ProjectCard;",
+    "components/HeroSection.jsx": "import React from 'react';\nconst HeroSection = () => { return <section className='h-64 bg-blue-500 flex items-center justify-center'><h1 className='text-white text-5xl'>Welcome to My Portfolio</h1></section>; }; \nexport default HeroSection;",
+    "pages/Home.jsx": "import React from 'react';\nimport HeroSection from '../components/HeroSection';\nconst Home = () => { return <HeroSection />; }; \nexport default Home;",
+    "pages/Projects.jsx": "import React from 'react';\nimport ProjectCard from '../components/ProjectCard';\nconst Projects = () => { \n    const projects = [\n        { title: 'Project 1', description: 'Description for project 1' },\n        { title: 'Project 2', description: 'Description for project 2' }\n    ];\n    return (\n        <div className='p-4'>\n            <h1 className='text-2xl'>My Projects</h1>\n            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>\n                {projects.map((project, index) => <ProjectCard key={index} {...project} />)}\n            </div>\n        </div>\n    );\n};\nexport default Projects;",
+    "pages/Contact.jsx": "import React from 'react';\nconst Contact = () => { return <h1 className='p-4'>Contact Me</h1>; }; \nexport default Contact;",
+    "hooks/useTheme.js": "import { useState } from 'react';\nexport default function useTheme() { const [theme, setTheme] = useState('light'); return { theme, setTheme }; }",
+    "context/AppContext.js": "import { createContext } from 'react';\nexport const AppContext = createContext(null);",
+    "utils/constants.js": "export const PROJECTS = [\n    { title: 'Project 1', description: 'Description for project 1' },\n    { title: 'Project 2', description: 'Description for project 2' }\n];"
+  },
+  "dependencies": "npm install react-router-dom"
+}
