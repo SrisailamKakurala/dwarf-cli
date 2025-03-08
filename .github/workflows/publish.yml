@@ -1,6 +1,6 @@
 name: Publish to NPM
 
-on: 
+on:
   workflow_dispatch:
 
 jobs:
@@ -20,8 +20,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Set API Key
-        run: echo "API_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
+      - name: Create Config File
+        run: echo '{ "OPENAI_API_KEY": "${{ secrets.API_KEY }}" }' > config.json
+
+      - name: Upload Config File to GitHub Releases
+        uses: softprops/action-gh-release@v1
+        with:
+          files: config.json
+          tag_name: latest
+          repository: ${{ github.repository }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Bump Version
         run: npm version patch --no-git-tag-version
