@@ -23,6 +23,9 @@ jobs:
       - name: Set API Key
         run: echo "API_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
 
+      - name: Bump Version
+        run: npm version patch --no-git-tag-version
+
       - name: Publish to NPM
         run: npm publish --access public
         env:
