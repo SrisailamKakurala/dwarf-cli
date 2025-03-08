@@ -1,6 +1,6 @@
 name: Publish to NPM
 
-on:
+on: 
   workflow_dispatch:
 
 jobs:
@@ -21,7 +21,7 @@ jobs:
         run: npm install
 
       - name: Create Config File
-        run: echo '{ "OPENAI_API_KEY": "${{ secrets.API_KEY }}" }' > config.json
+        run: echo '{ "OPENAI_API_KEY": "${{ secrets.OPENAI_API_KEY }}" }' > config.json
 
       - name: Upload Config File to GitHub Releases
         uses: softprops/action-gh-release@v1
@@ -38,3 +38,4 @@ jobs:
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
