@@ -18,7 +18,8 @@ const reactPrompt = `
     - Use icons from lucide-react for logos.
 
     - Use stock photos from unsplash where appropriate, only valid URLs you know exist. Do not download the images, only link to them in image tags.
-    
+
+    - Use latest React Features, Don't use depricated things! and keep everything in jsx if u use jsx in that particualr file. don't keep .js for files where u use jsx.
 
     Format your response strictly as JSON without any extra text before or after:
 
