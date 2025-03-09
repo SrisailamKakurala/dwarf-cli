@@ -39,11 +39,12 @@ const reactPrompt = `
             "pages/Home.jsx": "import React from 'react';\\n const Home = () => { return <h1>Welcome</h1>; }; \\n export default Home;",
             "hooks/useTheme.js": "import { useState } from 'react';\\n export default function useTheme() { const [theme, setTheme] = useState('light'); return { theme, setTheme }; }",
             "context/AppContext.js": "import { createContext } from 'react';\\n export const AppContext = createContext(null);"
+            ... all the remainnig code make sure the site is production ready with all the functionalities!! 
         },
         "dependencies": "npm install react-router-dom"
     }
 
-    Generate the response for the following prompt: 
+    Generate the response for the following prompt:- 
 `;
 
 module.exports = { reactPrompt };
