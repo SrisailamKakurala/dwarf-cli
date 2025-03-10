@@ -30,6 +30,7 @@ const reactPrompt = `
         "paths": {
             "App.jsx": "/src/App.jsx",
             "main.jsx": "/src/main.jsx",
+            "index.css": "/src/index.css",
             "components/Navbar.jsx": "/src/components/Navbar.jsx",
             "components/Footer.jsx": "/src/components/Footer.jsx",
             "components/Button.jsx": "/src/components/Button.jsx",
@@ -48,6 +49,8 @@ const reactPrompt = `
 
             "main.jsx": "import React from 'react';\\n import ReactDOM from 'react-dom/client';\\n import App from './App';\\n import { AppProvider } from './context/AppContext';\\n import './index.css';\\n const root = ReactDOM.createRoot(document.getElementById('root'));\\n root.render(<React.StrictMode><AppProvider><App /></AppProvider></React.StrictMode>);",
 
+            "index.css": "/* No custom styles needed since Tailwind CDN is used */",
+            
             "components/Navbar.jsx": "import React from 'react';\\n import { Link } from 'react-router-dom';\\n const Navbar = () => { return <nav className='bg-gray-900 text-white p-4 flex justify-between'><Link to='/'>🏠 Home</Link><Link to='/about'>📖 About</Link></nav>; }; \\n export default Navbar;",
 
             "components/Footer.jsx": "import React from 'react';\\n const Footer = () => { return <footer className='bg-gray-900 text-white p-4 text-center'>© 2025 DWARF AI | Built by Srisailam Kakurala</footer>; }; \\n export default Footer;",
@@ -76,8 +79,6 @@ const reactPrompt = `
         },
         "dependencies": "npm install react-router-dom react-icons ...and other required dependencies"
     }
-
-    **don't include any .css files especially in main and App.jsx files**
 
     give response in the above{the above code is just an example with minimal code but u don't hold back ur code should be comprehensive/complex/production levle with all features/functionalities/components} format for following prompt:- 
 `;
