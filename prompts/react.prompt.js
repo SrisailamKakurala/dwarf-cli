@@ -82,6 +82,12 @@ const reactPrompt = `
 
     *** I WANT NO ERRORS ON START!! AND THE SITE SHOULD BE RESPONSIVE AND ALIGNED PROPERLY with proper themes ***
 
+    *** Make Sure the Text in Project appears cleearly don't apply dark to text when we have dark bg ***
+
+    *** u can use local storage instead of context if u want.. but don't make any import/export errors ***
+
+    *** WEBSITE SHOULD BE RESPONSIVE AND HAVE A SLEEK DESIGN WITH PROPER ALIGNMENT AND CORRECT/VALID IMAGES ***
+
     give response in the above{the above code is just an example with minimal code but u don't hold back ur code should be comprehensive/complex/production level with all features/functionalities/components} format for following prompt:- 
 `;
 module.exports = { reactPrompt };
