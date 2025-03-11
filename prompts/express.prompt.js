@@ -24,6 +24,7 @@ Standard Structure:
   /utils - Helper functions
   app.js - Express application setup
   server.js - Entry point
+  package.json - ...
 
 Response format (JSON only):
 {
@@ -37,13 +38,15 @@ Response format (JSON only):
   "code": {
     "server.js": "const app = require('./app');\\nconst port = process.env.PORT || 3000;\\n\\napp.listen(port, () => {\\n  console.log(\`Server running on port \${port}\`);\\n});",
     
-    "app.js": "const express = require('express');\\nconst cors = require('cors');\\nconst helmet = require('helmet');\\nconst morgan = require('morgan');\\nconst errorHandler = require('./middlewares/errorHandler');\\nconst connectDB = require('./config/db');\\nrequire('dotenv').config();\\n\\n// Initialize express\\nconst app = express();\\n\\n// Connect to database\\nconnectDB();\\n\\n// Middleware\\napp.use(express.json());\\napp.use(cors());\\napp.use(helmet());\\napp.use(morgan('dev'));\\n\\n// Routes\\napp.use('/api/users', require('./routes/userRoutes'));\\napp.use('/api/auth', require('./routes/authRoutes'));\\n\\n// Error handler middleware\\napp.use(errorHandler);\\n\\nmodule.exports = app;",
+    "app.js": "const express = require('express');\\nconst cors = require('cors');\\nconst morgan = require('morgan');\\nconst errorHandler = require('./middlewares/errorHandler');\\nconst connectDB = require('./config/db');\\nrequire('dotenv').config();\\n\\n// Initialize express\\nconst app = express();\\n\\n// Connect to database\\nconnectDB();\\n\\n// Middleware\\napp.use(express.json());\\napp.use(cors());\\napp.use(helmet());\\napp.use(morgan('dev'));\\n\\n// Routes\\napp.use('/api/users', require('./routes/userRoutes'));\\napp.use('/api/auth', require('./routes/authRoutes'));\\n\\n// Error handler middleware\\napp.use(errorHandler);\\n\\nmodule.exports = app;",
     
     "config/db.js": "const mongoose = require('mongoose');\\n\\nconst connectDB = async () => {\\n  try {\\n    await mongoose.connect(process.env.MONGODB_URI);\\n    console.log('MongoDB connected');\\n  } catch (err) {\\n    console.error('Database connection error:', err.message);\\n    process.exit(1);\\n  }\\n};\\n\\nmodule.exports = connectDB;",
     
+    "package.json": "... it's content",
+
     ... and other files would follow in the same format ...
   },
-  "dependencies": "npm install express mongoose jsonwebtoken bcrypt cors helmet morgan dotenv joi winston mongoose-unique-validator express-rate-limit jest supertest",
+  "dependencies": "npm install express mongoose jsonwebtoken bcrypt cors morgan dotenv joi winston mongoose-unique-validator express-rate-limit",
 }
 
 ** the above structure should be strictly followed. **
