@@ -33,11 +33,11 @@ const reactPrompt = `
             "components/Navbar.jsx": "/src/components/Navbar.jsx",
             "components/Footer.jsx": "/src/components/Footer.jsx",
             "components/Button.jsx": "/src/components/Button.jsx",
-            "components/ThemeToggle.jsx": "/src/components/ThemeToggle.jsx",
+            "components/Hero.jsx": "/src/components/Hero.jsx",
+            // ... many other components
             "layouts/MainLayout.jsx": "/src/layouts/MainLayout.jsx",
             "pages/Home.jsx": "/src/pages/Home.jsx",
             "pages/About.jsx": "/src/pages/About.jsx",
-            "hooks/useTheme.jsx": "/src/hooks/useTheme.js",
             "hooks/useFetch.jsx": "/src/hooks/useFetch.js",
             "services/api.jsx": "/src/services/api.js",
             "utils/helpers.jsx": "/src/utils/helpers.js"
@@ -55,15 +55,11 @@ const reactPrompt = `
 
             "components/Button.jsx": "import React from 'react';\\n const Button = ({ children, onClick, type = 'button', className = '' }) => { return <button type={type} onClick={onClick} className={\`px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-500 \${className}\`}>{children}</button>; }; \\n export default Button;",
 
-            "components/ThemeToggle.jsx": "import React, { useContext } from 'react';\\n import { AppContext } from '../context/AppContext';\\n import { FaSun, FaMoon } from 'react-icons/fa';\\n const ThemeToggle = () => { const { theme, setTheme } = useContext(AppContext); return <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>{theme === 'light' ? <FaMoon /> : <FaSun />}</button>; }; \\n export default ThemeToggle;",
+            "layouts/MainLayout.jsx": "import React from 'react';\\n import Navbar from '../components/Navbar';\\n import Footer from '../components/Footer';\\n const MainLayout = ({ children }) => { return <div className='flex flex-col min-h-screen px-8'><Navbar /><main className='flex-grow'>{children}</main><Footer /></div>; }; \\n export default MainLayout;",
 
-            "layouts/MainLayout.jsx": "import React from 'react';\\n import Navbar from '../components/Navbar';\\n import Footer from '../components/Footer';\\n const MainLayout = ({ children }) => { return <div className='flex flex-col min-h-screen'><Navbar /><main className='flex-grow'>{children}</main><Footer /></div>; }; \\n export default MainLayout;",
-
-            "pages/Home.jsx": "import React from 'react';\\n import ThemeToggle from '../components/ThemeToggle';\\n const Home = () => { return <div className='text-center p-10'><h1 className='text-4xl font-bold'>Welcome to DWARF AI 🚀</h1><p className='mt-4'>AI-powered coding assistant</p><ThemeToggle /></div>; }; \\n export default Home;",
+            "pages/Home.jsx": "import React from 'react';\\n const Home = () => { return <div className='text-center p-10'><h1 className='text-4xl font-bold'>Welcome to DWARF AI 🚀</h1><p className='mt-4'>AI-powered coding assistant</p><ThemeToggle /></div>; }; \\n export default Home;",
 
             "pages/About.jsx": "import React from 'react';\\n const About = () => { return <div className='text-center p-10'><h1 className='text-3xl font-bold'>About DWARF AI 🤖</h1><p className='mt-4'>A powerful AI for generating high-quality React code.</p></div>; }; \\n export default About;",
-
-            "hooks/useTheme.jsx": "import { useState } from 'react';\\n export default function useTheme() { const [theme, setTheme] = useState('light'); return { theme, setTheme }; }",
 
             "hooks/useFetch.jsx": "import { useState, useEffect } from 'react';\\n const useFetch = (url) => { const [data, setData] = useState(null); const [loading, setLoading] = useState(true); useEffect(() => { fetch(url).then(res => res.json()).then(setData).finally(() => setLoading(false)); }, [url]); return { data, loading }; }; \\n export default useFetch;",
 
