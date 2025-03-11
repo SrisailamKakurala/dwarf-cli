@@ -80,6 +80,8 @@ const reactPrompt = `
         "dependencies": "npm install react-router-dom react-icons ...and other required dependencies"
     }
 
-    give response in the above{the above code is just an example with minimal code but u don't hold back ur code should be comprehensive/complex/production levle with all features/functionalities/components} format for following prompt:- 
+    *** I WANT NO ERRORS ON START!! AND THE SITE SHOULD BE RESPONSIVE AND ALIGNED PROPERLY with proper themes ***
+
+    give response in the above{the above code is just an example with minimal code but u don't hold back ur code should be comprehensive/complex/production level with all features/functionalities/components} format for following prompt:- 
 `;
 module.exports = { reactPrompt };
