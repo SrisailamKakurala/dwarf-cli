@@ -1,18 +1,21 @@
-Dwarf CLI 🚀
+# 🛠️ dwarf-cli  
 
-A lightweight CLI to generate project boilerplates effortlessly.
+**An AI-powered CLI to create full-fledged projects effortlessly.**  
 
-📥 Installation
+## 📦 Installation  
 
+```sh
 npm install -g dwarf-cli
+```
 
-Or run directly with:
+## 🚀 Usage  
 
-npx dwarf-cli
+To generate a project, run:  
 
-🚀 Usage
-
-Run the CLI and follow the prompts:
-
+```sh
 dwarf forge
+```
 
+The CLI will guide you through a few questions and then generate a complete project—be it a website(ReactJS, NextJS), API(ExpressJS), and soon even apps and packages!  
+
+🎉 **Build anything with AI. Fast.**
